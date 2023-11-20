@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfem communication</title>
+</head>
+<body>
+
+<textarea id="input" cols="30" rows="10"></textarea>
+<textarea id="output" cols="30" rows="10"></textarea>
+
+<button onclick="encode()">Encode</button>
+<button onclick="decode()">Decode</button>
+
+
+<script>
+
+    async function encode() {
+        let res = await fetch("https://raw.githubusercontent.com/UwUDev/transfem_communication/master/js/lib.js");
+        let lib = await res.text();
+        eval(lib);
+        let input = document.getElementById("input").value;
+        let output = document.getElementById("output");
+        let encoded = encodeStr(input);
+        // fix that sometime there is undefined at the end because I'm a prodev JS
+        if (encoded.endsWith("undefined")) {
+            encoded = encoded.substring(0, encoded.length - 10);
+        }
+        output.value = encoded;
+    }
+
+    async function decode() {
+        let res = await fetch("https://raw.githubusercontent.com/UwUDev/transfem_communication/master/js/lib.js");
+        let lib = await res.text();
+        eval(lib);
+        let input = document.getElementById("input").value;
+        let output = document.getElementById("output");
+        output.value = decodeStr(input);
+    }
+
+</script>
+</body>
+</html>
