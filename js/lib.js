@@ -16,7 +16,7 @@ function encode(bytes) {
         }
     });
     if (bufferBits > 0) {
-        result += CHARSET[buffer << (3 - bufferBits)];
+        result += CHARSET[(buffer << (3 - bufferBits)) & 0x07];
     }
     return result.trim();
 }
@@ -45,8 +45,8 @@ function decode(message) {
         }
     });
 
-    if (bufferBits > 0) {
-        result.push(buffer & ((1 << bufferBits) - 1));
+    if (bufferBits >= 8) {
+        result.push(buffer >> (bufferBits - 8));
     }
 
     return result;
