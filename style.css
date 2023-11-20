@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'Recoleta-Black';
+    src: local('Recoleta Black'), local('Recoleta-Black'),
+    url('/fonts/Recoleta-Black.woff2') format('woff2'),
+    url('/fonts/Recoleta-Black.woff') format('woff'),
+    url('/fonts/Recoleta-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Recoleta';
+    src: local('Recoleta Medium'), local('Recoleta-Medium'),
+    url('/fonts/Recoleta-Medium.woff2') format('woff2'),
+    url('/fonts/Recoleta-Medium.woff') format('woff'),
+    url('/fonts/Recoleta-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+:root {
+    margin: 0;
+    --red: #de055f;
+    --pink: #dc0bea;
+    --purple: #901eed;
+    background: linear-gradient(149deg, rgba(72, 1, 255, 0.5) 0%, rgba(171, 49, 228, 0.5) 100%), url('noise.svg');
+    background-attachment: fixed;
+    font-family: "Recoleta", sans-serif;
+}
+
+.title {
+    font-family: "Recoleta-Black", sans-serif;
+    font-size: 3em;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h2 {
+    font-family: "Recoleta-Black", sans-serif;
+    font-size: 1.8em;
+}
+
+a:hover {
+    color: #000;
+}
+
+body::before {
+    background: #8C8C8C;
+    filter: url(#noiseFilter);
+}
+
+html, body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    height: 100%;
+    gap: 3em;
+    margin: 0 10em;
+}
+
+textarea {
+    font-family: 'Recoleta', sans-serif;
+    width: 40%;
+    height: 60vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    background: linear-gradient(149deg, rgba(1, 158, 255, 0.5) 0%, rgba(222, 49, 228, 0.5) 100%), url('noise.svg');
+    background-attachment: fixed;
+
+    color: black;
+    font-size: 1.2em;
+
+    border-radius: 13px;
+
+    /*disable resize*/
+    resize: none;
+}
+
+.button {
+    font-family: "Recoleta-Black", sans-serif;
+    font-size: 1.5em;
+    border-radius: 13px;
+    border: none;
+    padding: 1em 2em;
+    background: linear-gradient(149deg, rgba(21, 151, 232, 0.8) 0%, rgba(231, 24, 236, 0.8) 100%), url('noise.svg');
+    background-attachment: fixed;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+
+    color: #000;
+
+    margin-bottom: 1em;
+}
+
+.link {
+    font-family: "Recoleta-Black", sans-serif;
+    text-decoration: underline;
+    color: #910c75;
+}
+
+.container {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*box-shadow: 0 4px 80px 10px rgba(27, 26, 42, 0.25);*/
+@keyframes hover-shadow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 40px 10px rgba(27, 26, 42, 0.25);
+    }
+}
+
+textarea:hover {
+    animation: hover-shadow 0.5s forwards;
+}
+
+/* Custom Scrollbar styles */
+textarea::-webkit-scrollbar {
+    width: 10px; /* Adjust the width of the scrollbar */
+}
+
+textarea::-webkit-scrollbar-track {
+    background: transparent; /* The track of the scrollbar */
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #901eed; /* The draggable part of the scrollbar */
+    border-radius: 100px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #5d129a; /* Color when you hover over the draggable part of the scrollbar */
+}
+
+/*remove arrows*/
+textarea::-webkit-inner-spin-button,
+textarea::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+textarea {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #901eed transparent; /* The draggable part of the scrollbar and the track */
+}
+
+/*shadow animation*/
+@keyframes strong-shadow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 40px 10px rgba(27, 26, 42, 0.25);
+    }
+}
+
+textarea:focus {
+    outline: none;
+    animation: strong-shadow 0.5s forwards;
+}
+
+:root::-webkit-scrollbar {
+    display: none;
+}
+
+p {
+    max-width: 45vw;
+}
+
+.hero {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 3em;
+    background: linear-gradient(to right, #151515 1px, transparent 1px) 0 0,
+    linear-gradient(to right, #151515 1px, transparent 1px) 0 100%,
+    linear-gradient(to left, #151515 1px, transparent 1px) 100% 0,
+    linear-gradient(to left, #151515 1px, transparent 1px) 100% 100%,
+    linear-gradient(to bottom, #151515 1px, transparent 1px) 0 0,
+    linear-gradient(to bottom, #151515 1px, transparent 1px) 100% 0,
+    linear-gradient(to top, #151515 1px, transparent 1px) 0 100%,
+    linear-gradient(to top, #151515 1px, transparent 1px) 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+
+}
+
+.hero-title {
+    margin-top: 10vh;
+    font-size: 5em;
+}
